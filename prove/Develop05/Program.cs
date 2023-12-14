@@ -17,7 +17,7 @@ class Program
 
             if (choice == 1)
             {
-
+                goalManager.CreateGoal();
             }
             else if (choice == 2)
             {
