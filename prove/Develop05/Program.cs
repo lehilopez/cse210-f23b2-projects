@@ -25,7 +25,7 @@ class Program
             }
             else if (choice == 3)
             {
-
+                goalManager.SaveGoals();
             }
             else if (choice == 4)
             {

@@ -24,13 +24,13 @@ public class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        string details = $"[ ] {_shortName} ({_description}) -- Currently completed {_amountCompleted}/{_target}";
+        string details = $"[ ] {GetName()} ({GetDescription()}) -- Currently completed {_amountCompleted}/{_target}";
         return details;
     }
 
     public override string GetStringRepresentation()
     {
-        string representation = "";
+        string representation = $"{GetType()}:{GetName()},{GetDescription()},{GetPoints()},{_bonus},{_target},{_amountCompleted}";
         return representation;
     }
 }

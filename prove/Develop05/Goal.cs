@@ -1,6 +1,6 @@
 public abstract class Goal
 {
-    protected string _shortName;
+    private string _shortName;
     protected string _description;
     private int _points;
 
@@ -9,6 +9,21 @@ public abstract class Goal
         _shortName = name;
         _description = description;
         _points = points;
+    }
+
+    public string GetName()
+    {
+        return _shortName;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+    public int GetPoints()
+    {
+        return _points;
     }
     
     public abstract void RecordEvent();

@@ -20,7 +20,7 @@ public class GoalManager
         Console.WriteLine("  4. Load Goals");
         Console.WriteLine("  5. Record Event");
         Console.WriteLine("  6. Quit");
-        Console.Write(" Select a choice from the menu: ");
+        Console.Write("Select a choice from the menu: ");
     }
 
     public void DisplayPlayerInfo()
@@ -39,8 +39,6 @@ public class GoalManager
 
         Console.WriteLine();
         Console.WriteLine("The goals are: ");
-
-        //Console.WriteLine($"Goals: {_goals.Count()}");
         
         foreach (Goal goal in _goals)
         {
@@ -102,7 +100,19 @@ public class GoalManager
 
     public void SaveGoals()
     {
+        Console.WriteLine();
+        Console.Write("What is the name of your goal? ");
+        string fileName = Console.ReadLine();
 
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            outputFile.WriteLine(_score);
+            
+            foreach (Goal goal in _goals)
+            {
+                outputFile.WriteLine(goal.GetStringRepresentation());
+            }
+        }
     }
 
     public void LoadGoals()
