@@ -9,9 +9,8 @@ public class GoalManager
     }
 
     public void Start()
-    {
-        Console.WriteLine();
-        Console.WriteLine($"You have {_score} points");
+    {     
+        DisplayPlayerInfo();
         Console.WriteLine();
         Console.WriteLine("Menu Options:");
         Console.WriteLine("  1. Create New Goal");
@@ -25,7 +24,8 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-
+        Console.WriteLine();
+        Console.WriteLine($"You have {_score} points");
     }
 
     public void ListGoalNames()
@@ -105,6 +105,25 @@ public class GoalManager
     public void RecordEvent()
     {
         ListGoalNames();
+        Console.Write("Which goal did you accomplish? ");
+        string input = Console.ReadLine();
+        int index = int.Parse(input) - 1;
+
+        _score = _score + _goals[index].GetPoints();
+
+        Console.WriteLine($"Congratulations! You have earned {_goals[index].GetPoints()} points!");        
+        Console.WriteLine($"You now have {_score} points.");
+
+        string goalType = $"{_goals[index].GetType()}";
+
+        if (goalType == "SimpleGoal")
+        {
+            
+        }
+        else if (goalType == "ChecklistGoal")
+        {
+
+        }
     }
 
     public void SaveGoals()
