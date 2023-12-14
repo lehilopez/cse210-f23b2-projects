@@ -10,6 +10,7 @@ public class GoalManager
 
     public void Start()
     {
+        Console.WriteLine();
         Console.WriteLine($"You have {_score} points");
         Console.WriteLine();
         Console.WriteLine("Menu Options:");
@@ -38,8 +39,8 @@ public class GoalManager
 
         Console.WriteLine();
         Console.WriteLine("The goals are: ");
-        
-        
+
+        //Console.WriteLine($"Goals: {_goals.Count()}");
         
         foreach (Goal goal in _goals)
         {
@@ -73,6 +74,7 @@ public class GoalManager
             int points = int.Parse(inputPoints);
 
             SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
+            _goals.Add(simpleGoal);
         }
         else if (choice == 2)
         {
