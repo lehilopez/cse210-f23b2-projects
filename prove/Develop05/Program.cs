@@ -29,11 +29,11 @@ class Program
             }
             else if (choice == 4)
             {
-
+                goalManager.LoadGoals();
             }
             else if (choice == 5)
             {
-
+                goalManager.RecordEvent();
             }
         }
         
