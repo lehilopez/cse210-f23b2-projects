@@ -30,7 +30,16 @@ public class GoalManager
 
     public void ListGoalNames()
     {
+        int count = 0;
+        
+        Console.WriteLine();
+        Console.WriteLine("The goals are:");
 
+        foreach (Goal goal in _goals)
+        {
+            count++;
+            Console.WriteLine($"{count}. {goal.GetName()}");
+        }
     }
 
     public void ListGoalDetails()
@@ -95,7 +104,7 @@ public class GoalManager
 
     public void RecordEvent()
     {
-
+        ListGoalNames();
     }
 
     public void SaveGoals()
@@ -126,35 +135,26 @@ public class GoalManager
         foreach (string line in lines)
         {
             string[] parts = line.Split(":");
-            string[] subparts = line.Split(",");
 
             if (parts[0] == "SimpleGoal")
             {
-                SimpleGoal simpleGoal = new SimpleGoal(subparts[0], subparts[1], int.Parse(subparts[2]), bool.Parse(subparts[3]));
+                SimpleGoal simpleGoal = new SimpleGoal(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
                 _goals.Add(simpleGoal);
             }
             else if (parts[0] == "EternalGoal")
             {
-                EternalGoal eternalGoal = new EternalGoal(subparts[0], subparts[1], int.Parse(subparts[2]));
+                EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], int.Parse(parts[3]));
                 _goals.Add(eternalGoal);
             }
             else if (parts[0] == "ChecklistGoal")
             {
-                ChecklistGoal checklistGoal = new ChecklistGoal(subparts[0], subparts[1], int.Parse(subparts[2]), int.Parse(subparts[5]), int.Parse(subparts[4]), int.Parse(subparts[3]));
+                ChecklistGoal checklistGoal = new ChecklistGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[6]), int.Parse(parts[5]), int.Parse(parts[4]));
             _goals.Add(checklistGoal);
             }
             else
             {
                 _score = int.Parse(parts[0]);
             }
-            
-            /*Entry entry = new Entry();
-
-            entry._date = parts[0];
-            entry._promptText = parts[1];
-            entry._entryText = parts[2];
-
-            AddEntry(entry);*/
         }
     }
 }
