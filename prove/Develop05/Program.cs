@@ -10,7 +10,7 @@ class Program
         
         while (choice != 6)
         {
-            Console.Clear();
+            //Console.Clear();
             goalManager.Start();
             string input = Console.ReadLine();
             choice = int.Parse(input);
@@ -21,7 +21,7 @@ class Program
             }
             else if (choice == 2)
             {
-
+                goalManager.ListGoalDetails();
             }
             else if (choice == 3)
             {

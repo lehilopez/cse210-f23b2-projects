@@ -34,7 +34,18 @@ public class GoalManager
 
     public void ListGoalDetails()
     {
+        int count = 0;
 
+        Console.WriteLine();
+        Console.WriteLine("The goals are: ");
+        
+        
+        
+        foreach (Goal goal in _goals)
+        {
+            count++;
+            Console.WriteLine($"{count}. {goal.GetDetailsString()}");
+        }
     }
 
     public void CreateGoal()
@@ -65,7 +76,7 @@ public class GoalManager
         }
         else if (choice == 2)
         {
-
+            
         }
         else if (choice == 3)
         {

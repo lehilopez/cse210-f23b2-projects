@@ -17,7 +17,7 @@ public abstract class Goal
 
     public virtual string GetDetailsString()
     {
-        string details = "";
+        string details = $"[ ] {_shortName} ({_description})";
         return details;
     }
 }
