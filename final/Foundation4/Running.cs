@@ -2,23 +2,23 @@ public class Running : Activity
 {
     private double _distance;
 
-    public override string GetSummary()
+    public Running(string date, int length, double distance) : base(date, length)
     {
-        return "";
+        _distance = distance;
     }
 
     public override double GetDistance()
     {
-        return 0.0;
+        return _distance;
     }
 
     public override double GetSpeed()
     {
-        return 0.0;
+        return (_distance / _length) * 60.0;
     }
 
     public override double GetPace()
     {
-        return 0.0;
+        return 60.0 / GetSpeed();
     }
 }
