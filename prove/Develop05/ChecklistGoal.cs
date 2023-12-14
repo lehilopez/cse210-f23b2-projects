@@ -6,6 +6,7 @@ public class ChecklistGoal : Goal
 
     public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
     {
+        _amountCompleted = 0;
         _target = target;
         _bonus = bonus;
     }
@@ -23,7 +24,7 @@ public class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        string details = "";
+        string details = $"[ ] {_shortName} ({_description}) -- Currently completed {_amountCompleted}/{_target}";
         return details;
     }
 

@@ -62,27 +62,36 @@ public class GoalManager
         string input = Console.ReadLine();
         int choice = int.Parse(input);
 
+        Console.WriteLine();
+        Console.Write("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.Write("What is the amount of goals associated with this goal? ");
+        string inputPoints = Console.ReadLine();
+        int points = int.Parse(inputPoints);
+
         if (choice == 1)        
         {
-            Console.WriteLine();
-            Console.Write("What is the name of your goal? ");
-            string name = Console.ReadLine();
-            Console.Write("What is a short description of it? ");
-            string description = Console.ReadLine();
-            Console.Write("What is the amount of goals associated with this goal? ");
-            string inputPoints = Console.ReadLine();
-            int points = int.Parse(inputPoints);
-
             SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
             _goals.Add(simpleGoal);
         }
         else if (choice == 2)
         {
-            
+            EternalGoal eternalGoal = new EternalGoal(name, description, points);
+            _goals.Add(eternalGoal);
         }
         else if (choice == 3)
         {
+            Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+            string inputTarget = Console.ReadLine();
+            int target = int.Parse(inputTarget);
+            Console.Write("What is the bonus for accomplishing it that many times? ");
+            string inputBonus = Console.ReadLine();
+            int bonus = int.Parse(inputBonus);
 
+            ChecklistGoal checklistGoal = new ChecklistGoal(name, description, points, target, bonus);
+            _goals.Add(checklistGoal);
         }        
     }
 
