@@ -111,18 +111,20 @@ public class GoalManager
 
         _score = _score + _goals[index].GetPoints();
 
+        Console.WriteLine();
         Console.WriteLine($"Congratulations! You have earned {_goals[index].GetPoints()} points!");        
         Console.WriteLine($"You now have {_score} points.");
 
+        _goals[index].RecordEvent();
+
         string goalType = $"{_goals[index].GetType()}";
 
-        if (goalType == "SimpleGoal")
+        if (goalType == "ChecklistGoal")
         {
-            
-        }
-        else if (goalType == "ChecklistGoal")
-        {
-
+            if (_goals[index].IsComplete())
+            {
+                 _score = _score + _goals[index].GetBonus();
+            }
         }
     }
 

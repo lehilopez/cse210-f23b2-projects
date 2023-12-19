@@ -14,13 +14,12 @@ public class SimpleGoal : Goal
     
     public override void RecordEvent()
     {
-        
+        _isComplete = true;
     }
 
     public override bool IsComplete()
-    {
-        bool isComplete = false;
-        return isComplete;
+    {        
+        return _isComplete;
     }
 
     public override string GetStringRepresentation()
