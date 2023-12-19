@@ -11,6 +11,11 @@ public class SimpleGoal : Goal
     {
         _isComplete = isComplete;
     }
+
+    public override int GetBonus()
+    {
+        return 0;
+    }
     
     public override void RecordEvent()
     {

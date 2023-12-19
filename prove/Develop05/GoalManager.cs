@@ -109,23 +109,26 @@ public class GoalManager
         string input = Console.ReadLine();
         int index = int.Parse(input) - 1;
 
-        _score = _score + _goals[index].GetPoints();
-
-        Console.WriteLine();
-        Console.WriteLine($"Congratulations! You have earned {_goals[index].GetPoints()} points!");        
-        Console.WriteLine($"You now have {_score} points.");
+        _score = _score + _goals[index].GetPoints();        
 
         _goals[index].RecordEvent();
 
         string goalType = $"{_goals[index].GetType()}";
 
+        int points = _goals[index].GetPoints();
+
         if (goalType == "ChecklistGoal")
         {
             if (_goals[index].IsComplete())
             {
-                 _score = _score + _goals[index].GetBonus();
+                _score = _score + _goals[index].GetBonus();
+                points = points + _goals[index].GetBonus();
             }
         }
+
+        Console.WriteLine();
+        Console.WriteLine($"Congratulations! You have earned {points} points!");
+        Console.WriteLine($"You now have {_score} points.");
     }
 
     public void SaveGoals()

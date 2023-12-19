@@ -4,6 +4,11 @@ public class EternalGoal : Goal
     {
         
     }
+
+    public override int GetBonus()
+    {
+        return 0;
+    }
     
     public override void RecordEvent()
     {

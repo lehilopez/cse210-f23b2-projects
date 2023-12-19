@@ -18,7 +18,7 @@ public class ChecklistGoal : Goal
         _bonus = bonus;
     }
 
-    public int GetBonus()
+    public override int GetBonus()
     {
         return _bonus;
     }

@@ -26,6 +26,8 @@ public abstract class Goal
         return _points;
     }
     
+
+    public abstract int GetBonus();
     public abstract void RecordEvent();
     public abstract bool IsComplete();
     public abstract string GetStringRepresentation();
